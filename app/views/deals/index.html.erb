@@ -1,0 +1,33 @@
+<h1>Tematy prowadzone z klientami</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Klient</th>
+      <th>Temat</th>
+      <th>Wartość (PLN)</th>
+      <th>Użytkownik</th>
+      <th>Status</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @deals.each do |deal| %>
+      <tr>
+        <td><%= deal.client %></td>
+        <td><%= deal.headline %></td>
+        <td><%= deal.value %></td>
+        <td><%= deal.user.email if deal.user %></td>
+        <td><%= link_to 'Show', deal %></td>
+        <td><%= link_to 'Edit', edit_deal_path(deal) %></td>
+        <td><%= link_to 'Destroy', deal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Deal', new_deal_path %>
