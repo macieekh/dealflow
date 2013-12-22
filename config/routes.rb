@@ -1,4 +1,6 @@
 Dealflow::Application.routes.draw do
+  resources :clients
+
   resources :deals
 
   devise_for :users
