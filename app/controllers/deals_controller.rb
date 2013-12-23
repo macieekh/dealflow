@@ -26,7 +26,10 @@ class DealsController < ApplicationController
   # POST /deals.json
   def create
   #  @deal = Deal.new(deal_params)
-     @deal = current_user.deals.build(deal_params)
+  # @deal = current_user.deals.build params[:deal].merge(:deal_id, :current_user_id)
+  # @deal = current_user.deals.build(deal_params) #ok 
+  @deal = current_user.deals.build(deal_params) #ok
+  #  @deal = current_user.deals.new(deal_params)
 
     respond_to do |format|
       if @deal.save
@@ -71,6 +74,6 @@ class DealsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def deal_params
-      params.require(:deal).permit(:client, :headline, :value, :description)
+      params.require(:deal).permit(:client, :headline, :value, :description, :user_id)
     end
 end
