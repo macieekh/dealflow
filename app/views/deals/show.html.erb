@@ -2,7 +2,7 @@
 
 <p>
   <strong>Client:</strong>
-  <%= @deal.client %>
+  <%= Client.find(@deal.client_id.to_i).name %>
 </p>
 
 <p>

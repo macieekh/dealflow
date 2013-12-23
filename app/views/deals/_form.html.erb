@@ -12,8 +12,9 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :client_name %><br>
-    <%= f.text_field :client_name %>
+    <%= f.label :client_name %>
+    <%= f.collection_select(:client_id, Client.order(:name), :id, :name, :prompt => "Select a prospect") %>   
+  
   </div>
   <div class="field">
     <%= f.label :headline %><br>
