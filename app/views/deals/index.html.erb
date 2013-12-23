@@ -16,7 +16,7 @@
   <tbody>
     <% @deals.each do |deal| %>
       <tr>
-        <td><%= deal.client %></td>
+        <td><%= deal.client_name %></td>
         <td><%= deal.headline %></td>
         <td><%= deal.value %></td>
         <td><%= deal.user.email if deal.user %></td>

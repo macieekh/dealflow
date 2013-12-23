@@ -74,6 +74,6 @@ class DealsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def deal_params
-      params.require(:deal).permit(:client, :headline, :value, :description, :user_id)
+      params.require(:deal).permit(:client_name, :headline, :value, :description, :user_id, :current_user, :current_user_id)
     end
 end
