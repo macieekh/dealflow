@@ -16,13 +16,16 @@
   <tbody>
     <% @deals.each do |deal| %>
       <tr>
-        <td><%= Client.find(deal.client_id.to_i).name %></td>
-        <td><%= deal.headline %></td>
-        <td><%= deal.value %></td>
-        <td><%= deal.user.email if deal.user %></td>
-        <td><%= link_to 'Show', deal %></td>
-        <td><%= link_to 'Edit', edit_deal_path(deal) %></td>
-        <td><%= link_to 'Destroy', deal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% #if deal.user == current_user %>
+          <td><%= Client.find(deal.client_id.to_i).name %></td>
+          <td><%= deal.headline %></td>
+          <td><%= deal.value %></td>
+          <td><%= deal.user.email if deal.user %></td>
+          <td><%= link_to 'Show', deal %></td>
+          <td><%= link_to 'Edit', edit_deal_path(deal) %></td>
+          <td><%= link_to 'Destroy', deal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          
+          <% #end %>
       </tr>
     <% end %>
   </tbody>

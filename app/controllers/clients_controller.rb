@@ -4,7 +4,9 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.all
+   @clients = Client.all
+   # @clients = Client.order(:name).where("name like ?", "%#{params[:term]}%")
+   # render json: @clients.map(&:name)
   end
 
   # GET /clients/1

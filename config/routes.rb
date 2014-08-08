@@ -1,11 +1,16 @@
 Dealflow::Application.routes.draw do
   resources :clients
 
-  resources :deals
+  
+  resources :jqclients
 
   devise_for :users
   root "pages#home"
   get "about" => "pages#about" # Creates about_path
+
+  resources :deals do
+  get :autocomplete_client_name, :on => :collection
+  end
   # get "pages/home"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -12,6 +12,11 @@
 //
 //= require bootstrap
 //= require jquery
+//= require jquery.turbolinks
+//= require jquery.ui.all
 //= require jquery_ujs
+//= require autocomplete-rails
+//= require chosen-jquery
 //= require turbolinks
+//= require deals
 //= require_tree .
