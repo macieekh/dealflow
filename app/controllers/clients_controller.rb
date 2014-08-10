@@ -5,6 +5,7 @@ class ClientsController < ApplicationController
   # GET /clients.json
   def index
    @clients = Client.all
+   
    # @clients = Client.order(:name).where("name like ?", "%#{params[:term]}%")
    # render json: @clients.map(&:name)
   end
@@ -12,6 +13,7 @@ class ClientsController < ApplicationController
   # GET /clients/1
   # GET /clients/1.json
   def show
+   @entryitems = Entryitem.all
   end
 
   # GET /clients/new

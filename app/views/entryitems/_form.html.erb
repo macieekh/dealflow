@@ -1,0 +1,22 @@
+<%= form_for(@entryitem) do |f| %>
+  <% if @entryitem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@entryitem.errors.count, "error") %> prohibited this entryitem from being saved:</h2>
+
+      <ul>
+      <% @entryitem.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <%= f.hidden_field :client_id, :value => params[:client_id] %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

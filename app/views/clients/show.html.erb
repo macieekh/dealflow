@@ -20,5 +20,21 @@
   <%= @client.desc %>
 </p>
 
+<p>
+<a href="<%=new_entryitem_path(:client_id => @client)%>" class="btn btn-primary">Dodaj notatke</a>
+</p>
+
+<p> Notatki dla klienta <p>
+ <% @entryitems.each do |entryitem| %>
+      <% if entryitem.client_id == @client.id %>
+      <tr>
+        <td><%= entryitem.description %></td>
+        <td><%= link_to 'Show', entryitem %></td>
+        <td><%= link_to 'Edit', edit_entryitem_path(entryitem) %></td>
+        <td><%= link_to 'Destroy', entryitem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    <% end %>
+
 <%= link_to 'Edit', edit_client_path(@client) %> |
 <%= link_to 'Back', clients_path %>
