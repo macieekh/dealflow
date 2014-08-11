@@ -69,6 +69,6 @@ class EntryitemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entryitem_params
-      params.require(:entryitem).permit(:description, :client_id)
+      params.require(:entryitem).permit(:description, :client_id, :deal_id)
     end
 end

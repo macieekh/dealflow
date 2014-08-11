@@ -20,5 +20,37 @@
   <%= @deal.description %>
 </p>
 
+<p>
+<a href="<%=new_entryitem_path(:client_id => @deal.client_id, :deal_id => @deal)%>" class="btn btn-primary">Dodaj notatke do transakcji</a>
+</p>
+
+<p> Notatki dla tej transakcji <p>
+ <table>
+ <thead>
+    <tr>
+      <th>Data</th>
+      <th>Opis</th>
+      <th>Pokaz</th>
+      <th>Edytuj</th>
+      <th>Usuń</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+ <% @entryitems.each do |entryitem| %>
+      <% if entryitem.client_id == @deal.client_id and entryitem.deal_id == @deal.id %>
+      <tr>
+        <td><%= entryitem.created_at.to_s(:entryitem_date)%></td>
+        <td><%= entryitem.description %></td>
+        <td><%= link_to 'Show', entryitem %></td>
+        <td><%= link_to 'Edit', edit_entryitem_path(entryitem) %></td>
+        <td><%= link_to 'Destroy', entryitem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    <% end %>
+    </tbody>
+</table>
+
 <%= link_to 'Edit', edit_deal_path(@deal) %> |
 <%= link_to 'Back', deals_path %>

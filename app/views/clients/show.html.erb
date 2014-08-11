@@ -25,9 +25,23 @@
 </p>
 
 <p> Notatki dla klienta <p>
+ <table>
+ <thead>
+    <tr>
+      <th>Data</th>
+      <th>Opis</th>
+      <th>Pokaz</th>
+      <th>Edytuj</th>
+      <th>Usuń</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
  <% @entryitems.each do |entryitem| %>
       <% if entryitem.client_id == @client.id %>
       <tr>
+        <td><%= entryitem.created_at.to_s(:entryitem_date)%></td>
         <td><%= entryitem.description %></td>
         <td><%= link_to 'Show', entryitem %></td>
         <td><%= link_to 'Edit', edit_entryitem_path(entryitem) %></td>
@@ -35,6 +49,7 @@
       </tr>
       <% end %>
     <% end %>
-
+    </tbody>
+</table>
 <%= link_to 'Edit', edit_client_path(@client) %> |
 <%= link_to 'Back', clients_path %>

@@ -1,6 +1,7 @@
 class Deal < ActiveRecord::Base
 	belongs_to :user
-	belongs_to :client 
+	belongs_to :client
+	has_many :entryitems 
 
 	def client_name_select
   		client.try(:name)
