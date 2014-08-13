@@ -20,12 +20,14 @@
   <%= @deal.description %>
 </p>
 
+<br>
 <p>
 <a href="<%=new_entryitem_path(:client_id => @deal.client_id, :deal_id => @deal)%>" class="btn btn-primary">Dodaj notatke do transakcji</a>
 </p>
+<br>
+<h4>Notatki dotyczące tej transakcji</h4>
 
-<p> Notatki dla tej transakcji <p>
- <table>
+ <table class="table table-striped">
  <thead>
     <tr>
       <th>Data</th>

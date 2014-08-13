@@ -10,6 +10,7 @@ class EntryitemsController < ApplicationController
   # GET /entryitems/1
   # GET /entryitems/1.json
   def show
+    
   end
 
   # GET /entryitems/new

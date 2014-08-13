@@ -2,7 +2,7 @@ Dealflow::Application.routes.draw do
   resources :entryitems
 
   resources :clients
-
+ 
   
   resources :jqclients
 
