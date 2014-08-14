@@ -1,22 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Client:</strong>
+  <strong>Klient:</strong>
   <%= Client.find(@deal.client_id.to_i).name %>
 </p>
 
 <p>
-  <strong>Headline:</strong>
+  <strong>Tytuł:</strong>
   <%= @deal.headline %>
 </p>
 
 <p>
-  <strong>Value:</strong>
+  <strong>Szacowana wartość:</strong>
   <%= @deal.value %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Opis::</strong>
   <%= @deal.description %>
 </p>
 
@@ -25,7 +25,7 @@
 <a href="<%=new_entryitem_path(:client_id => @deal.client_id, :deal_id => @deal)%>" class="btn btn-primary">Dodaj notatke do transakcji</a>
 </p>
 <br>
-<h4>Notatki dotyczące tej transakcji</h4>
+<h4>Notatki dotyczące tej transakcji </h4>
 
  <table class="table table-striped">
  <thead>
