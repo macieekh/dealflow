@@ -14,6 +14,7 @@ class DealsController < ApplicationController
   # GET /deals/1.json
   def show
      @entryitems = Entryitem.all
+     @tasks = Task.all
   end
 
   # GET /deals/new

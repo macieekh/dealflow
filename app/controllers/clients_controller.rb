@@ -14,6 +14,7 @@ class ClientsController < ApplicationController
   # GET /clients/1.json
   def show
    @entryitems = Entryitem.all
+   @tasks = Task.all
   end
 
   # GET /clients/new

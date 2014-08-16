@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140811193137) do
+ActiveRecord::Schema.define(version: 20140816173110) do
 
   create_table "clients", force: true do |t|
     t.string   "name"
@@ -45,6 +45,19 @@ ActiveRecord::Schema.define(version: 20140811193137) do
 
   add_index "entryitems", ["client_id"], name: "index_entryitems_on_client_id"
   add_index "entryitems", ["deal_id"], name: "index_entryitems_on_deal_id"
+
+  create_table "tasks", force: true do |t|
+    t.string   "title"
+    t.datetime "duedate"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "client_id"
+    t.integer  "deal_id"
+  end
+
+  add_index "tasks", ["client_id"], name: "index_tasks_on_client_id"
+  add_index "tasks", ["deal_id"], name: "index_tasks_on_deal_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

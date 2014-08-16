@@ -21,8 +21,43 @@
 </p>
 
 <p>
+<a href="<%=new_task_path(:client_id => @client)%>" class="btn btn-primary">Dodaj zadanie</a>
+</p>
+
+<h4>Zadania dotyczące klienta</h4>
+<table class="table table-striped">
+ <thead>
+    <tr>
+      <th>Tytuł</th>
+      <th>Data wykonania</th>
+      <th>Pokaż</th>
+      <th>Edytuj</th>
+      <th>Usuń</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+ <% @tasks.each do |task| %>
+      <% if task.client_id == @client.id %>
+      <tr>
+        <td><%= task.created_at.to_s(:task_date)%></td>
+        <td><%= task.description %></td>
+        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Edit', edit_entryitem_path(task) %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    <% end %>
+    </tbody>
+</table>
+
+
+<p>
 <a href="<%=new_entryitem_path(:client_id => @client)%>" class="btn btn-primary">Dodaj notatke</a>
 </p>
+
+
 
 <p> Notatki dla klienta <p>
  <table class="table table-striped">

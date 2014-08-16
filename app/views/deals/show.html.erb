@@ -21,10 +21,46 @@
 </p>
 
 <br>
-<p>
-<a href="<%=new_entryitem_path(:client_id => @deal.client_id, :deal_id => @deal)%>" class="btn btn-primary">Dodaj notatke do transakcji</a>
+
+
+<a href="<%=new_task_path(:client_id => @deal.client_id, :deal_id => @deal)%>" class="btn btn-primary">Nowe zadanie</a>
 </p>
 <br>
+<h4>Zadania dotyczące tej transakcji</h4>
+<table class="table table-striped">
+ <thead>
+    <tr>
+      <th>Tytuł</th>
+      <th>Data wykonania</th>
+      <th>Pokaż</th>
+      <th>Edytuj</th>
+      <th>Usuń</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+ <% @tasks.each do |task| %>
+      <% if task.client_id == @deal.client_id and task.deal_id == @deal.id %>
+      <tr>
+        <td><%= task.created_at.to_s(:task_date)%></td>
+        <td><%= task.description %></td>
+        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Edit', edit_entryitem_path(task) %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    <% end %>
+    </tbody>
+</table>
+
+<br>
+<br>
+
+<p>
+<a href="<%=new_entryitem_path(:client_id => @deal.client_id, :deal_id => @deal)%>" class="btn btn-primary">Nowa notatka</a>
+</p>
+<p>
 <h4>Notatki dotyczące tej transakcji </h4>
 
  <table class="table table-striped">
