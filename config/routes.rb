@@ -1,4 +1,8 @@
 Dealflow::Application.routes.draw do
+  resources :parts
+
+  resources :valuations
+
   resources :tasks
 
   resources :entryitems

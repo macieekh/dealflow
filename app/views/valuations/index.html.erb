@@ -1,0 +1,27 @@
+<h1>Listing valuations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @valuations.each do |valuation| %>
+      <tr>
+        <td><%= valuation.description %></td>
+        <td><%= link_to 'Show', valuation %></td>
+        <td><%= link_to 'Edit', edit_valuation_path(valuation) %></td>
+        <td><%= link_to 'Destroy', valuation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Valuation', new_valuation_path %>
