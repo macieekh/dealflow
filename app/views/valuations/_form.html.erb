@@ -16,12 +16,17 @@
     <%= f.text_area :description %>
   </div>
 <div class="field">
-<%= f.fields_for :part do |builder| %>
-    <%= builder.label :part %><br>   
-    <%= builder.collection_select :part_id, Part.all, :id, :name %>
-<% end %>
+
+ 
+    <%= collection_select :valuation, :part_ids, @parts, :id, :name  %>
+
 </div>
-  
+  <div class="field">
+    <%= f.label :quantity %><br>
+    <%= f.text_field :quantity %>
+  </div>
+<div class="field">
+<br>  
   <div class="actions">
     <%= f.submit %>
   </div>
