@@ -69,6 +69,6 @@ class ValuationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def valuation_params
-      params.require(:valuation).permit(:description)
+      params.require(:valuation).permit(:description, :part_id, :valuation_id, {:part_ids => []})
     end
 end
