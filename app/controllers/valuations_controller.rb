@@ -16,6 +16,7 @@ class ValuationsController < ApplicationController
   def new
     @valuation = Valuation.new
     @parts = Part.all
+    @valuation.valuation_lines.build
   end
 
   # GET /valuations/1/edit
@@ -70,6 +71,8 @@ class ValuationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def valuation_params
-      params.require(:valuation).permit(:description, :part_id, :valuation_id, :purchase_price, :valuation_line, {:part_ids => []})
-    end
+      #params.require(:valuation).permit(:description, :part_id, :valuation_id, :pruchase_price, :valuation_line, :quantity, :part_ids, :valuation_lines_attributes, parts_attributes: [:id, :code, :name])
+      params.require(:valuation).permit(:id, :description, :part_id, :valuation_id, :pruchase_price, :valuation_line, :quantity, :part_ids, parts_attributes: [:id, :code, :name], valuation_lines_attributes: [:id, :valuation_id, :part_id, :pruchase_price, :quantity])
+      #params.require(:valuation).permit(:description, :part_id, :valuation_id, :purchase_price, :quantity, :part_ids, :valuation_line, valuation_lines_attributes: [:id, :quantity])
+  end
 end
