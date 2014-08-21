@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140818191932) do
+ActiveRecord::Schema.define(version: 20140821192241) do
 
   create_table "clients", force: true do |t|
     t.string   "name"
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 20140818191932) do
   create_table "valuation_lines", force: true do |t|
     t.integer "valuation_id"
     t.integer "part_id"
-    t.integer "pruchase_price"
+    t.integer "purchase_price"
     t.integer "quantity"
   end
 

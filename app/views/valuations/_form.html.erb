@@ -16,18 +16,15 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
-<div class="field">
 
-</div>
-<div class="field">
+  <div class="field">
 
-<%= f.fields_for :valuation_lines do |builder| %>
+  <%= f.fields_for :valuation_lines do |builder| %>
+    <%= render 'valuation_line_fields', f: builder %>
+    <%= link_to_add_fields "Dodaj produkt", f, :valuation_lines %>
+  <% end %>
 
-<%= builder.collection_select(:part_id, @parts, :id, :name) %><br/>
-      <%= builder.label :pruchase_price, "Price:" %> <br/>
-      <%= builder.text_field :pruchase_price %>
-<% end %>
-
+  
 </div>    
 
 <div class="field">
