@@ -12,20 +12,32 @@
     </div>
   <% end %>
 
-  <div class="field">
+<div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
 
-  <div class="field">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nazwa części</th>
+      <th>Ilość</th>
+      <th>Cena zakupu</th>
+      <th></th>
+    </tr>
+  </thead>
 
-  <%= f.fields_for :valuation_lines do |builder| %>
-    <%= render 'valuation_line_fields', f: builder %>
-    <%= link_to_add_fields "Dodaj produkt", f, :valuation_lines %>
-  <% end %>
+  <tbody>
 
-  
-</div>    
+     <%= f.fields_for :valuation_lines do |builder| %>
+     <%= render 'valuation_line_fields', f: builder %>
+     <% end %>
+
+     
+  </tbody>
+</table>
+<%= link_to_add_fields "Dodaj produkt", f, :valuation_lines %>
+
 
 <div class="field">
 <br>  

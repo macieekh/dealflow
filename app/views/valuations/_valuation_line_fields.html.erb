@@ -1,7 +1,7 @@
-      <fieldset>
-        <%= f.collection_select(:part_id, @parts, :id, :name) %><br/>
-        <%= f.label :purchase_price, "Price:" %> <br/>
-        <%= f.text_field :purchase_price %>
-        <%= f.hidden_field :_destroy %>
-     	<%= link_to "Usuń", '#', class: "remove_fields" %>
-      </fieldset>
+      <tr>
+            <td><%= f.collection_select(:part_id, @parts, :id, :name) %></td>
+	        <td><%= f.text_field :quantity %></td>
+	        <td><%= f.text_field :purchase_price %></td>
+	        <td><%= f.hidden_field :_destroy %>	<%= link_to "Usuń", '#', class: "remove_fields" %></td>
+	       
+	  </tr>
