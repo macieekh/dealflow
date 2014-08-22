@@ -12,3 +12,6 @@ jQuery ->
     regexp = new RegExp($(this).data('id'), 'g')
     $("tr:last").after($(this).data('fields').replace(regexp, time))
     event.preventDefault()
+
+  $('.pole').autocomplete
+    source: ['foo', 'food', 'four']

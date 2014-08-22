@@ -1,6 +1,6 @@
       <tr>
-            <td><%= f.text_field :part_name, class: "pole" %></td>
-            <td><%= f.text_field :quantity %></td>
+            <td><%= f.collection_select(:part_id, @parts, :id, :name) %></td>
+	        <td><%= f.text_field :quantity %></td>
 	        <td><%= f.text_field :purchase_price %></td>
 	        <td><%= f.hidden_field :_destroy %>	<%= link_to "Usuń", '#', class: "remove_fields" %></td>
 	       
