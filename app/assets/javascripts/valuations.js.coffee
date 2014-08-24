@@ -13,5 +13,6 @@ jQuery ->
     $("tr:last").after($(this).data('fields').replace(regexp, time))
     event.preventDefault()
 
-  $('.pole').autocomplete
-    source: ['foo', 'food', 'four']
+  $('#valuation_valuation_lines_attributes_0_part_name').autocomplete
+    source: $('#valuation_valuation_lines_attributes_0_part_name').data('autocomplete-source')
+
