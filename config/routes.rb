@@ -9,7 +9,7 @@ Dealflow::Application.routes.draw do
 
   resources :clients
 
-  resources :partsquery 
+  resources :queryparts
   
   resources :jqclients
 
