@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nazwa klienta:</strong>
   <%= @client.name %>
 </p>
 
@@ -16,15 +16,16 @@
 </p>
 
 <p>
-  <strong>Desc:</strong>
+  <strong>Opis:</strong>
   <%= @client.desc %>
 </p>
 
-<p>
-<a href="<%=new_task_path(:client_id => @client)%>" class="btn btn-primary">Dodaj zadanie:</a>
-</p>
+<br>
 
-<h4>Zadania dotyczące klienta</h4>
+<h3>Zadania dotyczące klienta</h3>
+<p>
+<a href="<%=new_task_path(:client_id => @client)%>" class="btn btn-primary btn-sm">Dodaj zadanie</a>
+</p>
 <table class="table table-striped">
  <thead>
     <tr>
@@ -52,14 +53,15 @@
     </tbody>
 </table>
 
+<br>
 
+
+
+
+<h3>Notatki dotyczące klienta </h3>
 <p>
-<a href="<%=new_entryitem_path(:client_id => @client)%>" class="btn btn-primary">Dodaj notatke</a>
+<a href="<%=new_entryitem_path(:client_id => @client)%>" class="btn btn-primary btn-sm">Dodaj notatke</a>
 </p>
-
-
-
-<p> Notatki dla klienta <p>
  <table class="table table-striped">
  <thead>
     <tr>
