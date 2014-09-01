@@ -22,5 +22,6 @@ module Dealflow
 
     # Required for Heroku
     config.assets.initialize_on_precompile = false
+    config.assets.precompile += ['valuations.js.coffee'+'fields.js']
   end
 end
